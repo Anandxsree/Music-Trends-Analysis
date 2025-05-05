@@ -1,94 +1,60 @@
-Zlib 1.2.3 DLL and Library for Windows 64 bits - x64
+Music Trends Analysis: Last.fm Top Tracks (May 2025)
+This project is a Power BI dashboard that looks at music trends using data from Last.fm, as of May 2025. It uses a model that’s 90% accurate to predict which tracks are popular, focusing on artists, tracks, and listener patterns.
+What This Project Does
+I analyzed 99 top tracks from Last.fm to find trends:
 
-dll_x64\zlibvc.sln : replace contrib\vstudio\vc8\zlibvc.sln of zlib 1.2.3 (minor fix)
-dll_x64\zlibwapi.dll : DLL of Zlib 1.2.3 for Windows 64 bits x64 (AMD64/Intel EM64T)
-dll_x64\zlibwapi.lib : The Import library of the DLL
-dll_x64\demo\miniunz.exe: sample which uses the DLL
-dll_x64\demo\minizip.exe: sample which uses the DLL
-dll_x64\demo\testzlib.exe: sample which uses the DLL
-static_x64\zlibstat.lib
+Which artists are the most popular (like Arctic Monkeys with ~42.9M plays).
+Which tracks have the most listeners (like “Mr. Brightside” with 3.38M listeners).
+How playcounts and listeners are related (using a bubble chart).
+A model (90% accurate) shows listeners are the biggest factor (86.34% importance) in predicting popularity.
 
-These binary were build using Platform SDK windows 2003 SP1 compiler
+The dashboard has visuals like:
 
-The zlib.h must be the version from zlib123.zip / zlib-1.2.3.tar.gz
+A treemap showing the top 15 artists by playcount.
+A bubble chart comparing playcounts and listeners (green means popular).
+A word cloud of the top 20 tracks by listeners.
+A bar chart of the top 10 tracks, colored by artist.
+Cards showing the model’s accuracy (90%) and top factor (listeners).
+A filter to look at specific artists (like Charli XCX’s 6 tracks).
 
-Note :
-  the DLLuses the WINAPI calling convention for the exported functions, and
-  includes the minizip functionality.
+Files in This Project
 
+Music_Trends_Dashboard_Final.pbix: The Power BI dashboard file (might be missing if not uploaded yet).
+lastfm_dashboard_data.csv: The dataset with 99 tracks (has columns like track name, artist, playcount, listeners).
+music_trends_analysis.py: The Python script that collects data and builds the model (might be missing if not uploaded yet).
+lastfm_popularity_model.pkl: The trained model file (Random Forest, 90% accurate).
+artist_playcount.png: A picture of the top artists by playcount.
+playcount_vs_listeners.png: A picture of the playcount vs. listeners chart.
+Music Trends Analysis.ipynb: A Jupyter notebook with my analysis.
 
-If you want rebuild these file, for your information :
+How to Use It
 
-Building instructions for the DLL versions of Zlib 1.2.3
-========================================================
-
-This directory contains projects that build zlib and minizip using
-Microsoft Visual C++ 7.0/7.1, and Visual C++ 2005.
-
-You don't need to build these projects yourself. You can download the
-binaries from:
-  http://www.winimage.com/zLibDll
-
-More information can be found at this site.
-
-
-Build instructions for Visual Studio 7.x (32 bits)
---------------------------------------------------
-- Uncompress current zlib, including all contrib/* files
-- Download the crtdll library from
-    http://www.winimage.com/zLibDll/crtdll.zip
-  Unzip crtdll.zip to extract crtdll.lib on contrib\vstudio\vc7.
-- Open contrib\vstudio\vc7\zlibvc.sln with Microsoft Visual C++ 7.x
-  (Visual Studio .Net 2002 or 2003).
-
-Build instructions for Visual Studio 2005 (32 bits or 64 bits)
---------------------------------------------------------------
-- Uncompress current zlib, including all contrib/* files
-- For 32 bits only: download the crtdll library from
-    http://www.winimage.com/zLibDll/crtdll.zip
-  Unzip crtdll.zip to extract crtdll.lib on contrib\vstudio\vc8.
-- Open contrib\vstudio\vc8\zlibvc.sln with Microsoft Visual C++ 8.0
-
-Build instructions for Visual Studio 2005 64 bits, PSDK compiler
-----------------------------------------------------------------
-at the time of writing this text file, Visual Studio 2005 (and 
-  Microsoft Visual C++ 8.0) is on the beta 2 stage.
-Using you can get the free 64 bits compiler from Platform SDK, 
-  which is NOT a beta, and compile using the Visual studio 2005 IDE
-see http://www.winimage.com/misc/sdk64onvs2005/ for instruction
-
-- Uncompress current zlib, including all contrib/* files
-- start Visual Studio 2005 from a platform SDK command prompt, using
-  the /useenv switch
-- Open contrib\vstudio\vc8\zlibvc.sln with Microsoft Visual C++ 8.0
+Download the Music_Trends_Dashboard_Final.pbix file (if it’s in the repository).
+Open it in Power BI Desktop (you can download Power BI from Microsoft).
+Explore the dashboard:
+Use the filter to pick an artist (like Sabrina Carpenter to see “Espresso”).
+Hover over visuals to see more details (like playcounts and listeners).
+Look at the cards to see the model’s accuracy.
 
 
-Important
----------
-- To use zlibwapi.dll in your application, you must define the
-  macro ZLIB_WINAPI when compiling your application's source files.
+
+If the .pbix file isn’t here, you can still see the visuals in artist_playcount.png and playcount_vs_listeners.png.
+Key Findings
+
+Top Artists: Arctic Monkeys, The Killers, and Radiohead have over 40M plays each.
+Popular Tracks: “Mr. Brightside” (3.38M listeners) and “Creep” (3.29M listeners) are the most listened to.
+Model Insight: The number of listeners is the biggest reason a track is popular (86.34% importance in the model).
+Suggestions: Streaming platforms should promote tracks with over 1M listeners (like “Poker Face”) and feature artists with many hits (like Charli XCX or Sabrina Carpenter).
+
+Limitations
+
+The dataset doesn’t have good duration data for tracks (many are 0.0 seconds).
+There’s no genre information, so I couldn’t look at trends by music type.
+
+Future Ideas
+
+Get better track duration data from the Last.fm API.
+Add genre data to see which music types are most popular.
 
 
-Additional notes
-----------------
-- This DLL, named zlibwapi.dll, is compatible to the old zlib.dll built
-  by Gilles Vollant from the zlib 1.1.x sources, and distributed at
-    http://www.winimage.com/zLibDll
-  It uses the WINAPI calling convention for the exported functions, and
-  includes the minizip functionality. If your application needs that
-  particular build of zlib.dll, you can rename zlibwapi.dll to zlib.dll.
-
-- The new DLL was renamed because there exist several incompatible
-  versions of zlib.dll on the Internet.
-
-- There is also an official DLL build of zlib, named zlib1.dll. This one
-  is exporting the functions using the CDECL convention. See the file
-  win32\DLL_FAQ.txt found in this zlib distribution.
-
-- There used to be a ZLIB_DLL macro in zlib 1.1.x, but now this symbol
-  has a slightly different effect. To avoid compatibility problems, do
-  not define it here.
-
-
-Gilles Vollant
-info@winimage.com
+About Me: I’m Anand, and this is part of my work in data analysis. I’ve also done projects like the Blinkit Grocery Data Analysis (May 2025). This project shows my skills in Power BI, data visualization, and building models to find insights.
