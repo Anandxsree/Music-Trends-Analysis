@@ -18,18 +18,18 @@ We used a **Random Forest model (90% accurate)** to predict track popularity, wi
 
 ## ✨ Features
 
-* Treemap of the top 15 artists by playcount
-* Bubble chart comparing playcounts vs. listeners (green = more popular)
-* Word cloud showing top 20 tracks by listeners
-* Bar chart of top 10 tracks colored by artist
-* KPI cards for model accuracy and feature importance
-* Interactive filter to explore artist-specific data (e.g., Charli XCX, Sabrina Carpenter)
+* ✅ Treemap of the top 15 artists by playcount
+* 🔘 Bubble chart comparing playcounts vs. listeners (green = more popular)
+* ☁️ Word cloud showing top 20 tracks by listeners
+* 📊 Bar chart of top 10 tracks colored by artist
+* 📌 KPI cards for model accuracy and feature importance
+* 🔍 Interactive filter to explore artist-specific data (e.g., Charli XCX, Sabrina Carpenter)
 
 ---
 
 ## 📁 Repository Structure
 
-```
+```bash
 Music-Trends-Lastfm/
 ├── Music_Trends_Dashboard_Final.pbix         # Power BI dashboard file
 ├── lastfm_dashboard_data.csv                 # Dataset of top 99 tracks
@@ -50,56 +50,47 @@ Music-Trends-Lastfm/
 
 ---
 
-## 🚀 How to Use
+## 🚀 Getting Started
 
-1. **Install Power BI Desktop**
-   Download from [Power BI Desktop](https://powerbi.microsoft.com/desktop/)
+### 🔧 Prerequisites
 
-2. **Open the Dashboard**
-   Launch `Music_Trends_Dashboard_Final.pbix` in Power BI Desktop
+* Power BI Desktop ([Download Here](https://powerbi.microsoft.com/desktop/))
 
-3. **Explore the Insights**
+### 💻 How to Use
 
-   * Use the artist filter to focus on specific artists like **Sabrina Carpenter**
-   * Hover on visuals to see details (playcount, listeners)
-   * Review model cards for accuracy and feature importance
+1. **Download** or **clone** the repository
+2. **Open** `Music_Trends_Dashboard_Final.pbix` in Power BI Desktop
+3. **Explore the Insights**:
 
-> 💡 If the `.pbix` file is not included, you can still view the main visuals in the `.png` images.
+   * Use filters to drill into artist-specific data (e.g., *Sabrina Carpenter*)
+   * Hover over visuals to inspect playcounts and listeners
+   * View KPI cards for model accuracy and feature importance
+
+> 💡 *If the `.pbix` file is missing, refer to the `.png` files in the repo for a snapshot of the dashboard.*
 
 ---
 
 ## 🔑 Key Findings
 
-* **Top Artists**: Arctic Monkeys, The Killers, Radiohead each have over **40M plays**
-* **Top Tracks**: “Mr. Brightside” (3.38M listeners), “Creep” (3.29M)
-* **Model Insight**: Listener count is the biggest factor in predicting track popularity
-* **Actionable Insights**:
+* 🎧 **Top Artists**: Arctic Monkeys, The Killers, and Radiohead each have over **40M+ plays**
+* 🎵 **Top Tracks**: “Mr. Brightside” (3.38M listeners), “Creep” (3.29M listeners)
+* 🧠 **Model Insight**: Listener count is the biggest factor in predicting popularity (**86.34% importance**)
+* 💡 **Suggestions**:
 
   * Promote tracks with **>1M listeners** (e.g., “Poker Face”)
-  * Highlight artists with multiple hits like **Charli XCX** or **Sabrina Carpenter**
+  * Highlight artists with multiple hits such as **Charli XCX** or **Sabrina Carpenter**
 
 ---
 
 ## ⚠️ Limitations
 
-* Track duration data is often missing or recorded as 0.0 seconds
-* No genre data available — genre trends were not analyzed
+* Many track duration values are missing or recorded as **0.0 seconds**
+* Genre information is unavailable, so no genre-based trend analysis
 
 ---
 
-## 💡 Future Enhancements
+## 🚧 Future Enhancements
 
-* Use the Last.fm API to collect accurate track duration
-* Add genre classification to explore trends across music types
+* Integrate accurate duration metadata from the **Last.fm API**
+* Include genre classification for more detailed trend breakdowns
 
----
-
-## 👤 About Me
-
-Hi, I’m **Anand** – a data analyst with a passion for insights and storytelling.
-
-This project highlights my skills in **Power BI**, **data visualization**, and **machine learning**.
-
-Other projects: [BlinkIT Grocery Power BI Dashboard](https://github.com/Anandxsree/Power-bi)
-
----
